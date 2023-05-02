@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnopen = new System.Windows.Forms.Button();
             this.btnorganize = new System.Windows.Forms.Button();
-            this.lstArchivos = new System.Windows.Forms.ListBox();
-            this.txtPath = new System.Windows.Forms.TextBox();
+            this.tuvFiles = new System.Windows.Forms.TreeView();
+            this.picimagenes = new System.Windows.Forms.PictureBox();
+            this.rtbtext = new System.Windows.Forms.RichTextBox();
+            this.vlcControl1 = new Vlc.DotNet.Forms.VlcControl();
+            this.btnPause = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picimagenes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnopen
@@ -54,35 +60,73 @@
             this.btnorganize.UseVisualStyleBackColor = true;
             this.btnorganize.Click += new System.EventHandler(this.btnorganize_Click);
             // 
-            // lstArchivos
+            // tuvFiles
             // 
-            this.lstArchivos.FormattingEnabled = true;
-            this.lstArchivos.ItemHeight = 16;
-            this.lstArchivos.Location = new System.Drawing.Point(52, 187);
-            this.lstArchivos.Name = "lstArchivos";
-            this.lstArchivos.Size = new System.Drawing.Size(315, 532);
-            this.lstArchivos.TabIndex = 2;
+            this.tuvFiles.Location = new System.Drawing.Point(52, 136);
+            this.tuvFiles.Name = "tuvFiles";
+            this.tuvFiles.Size = new System.Drawing.Size(349, 563);
+            this.tuvFiles.TabIndex = 2;
+            this.tuvFiles.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tuvFiles_AfterSelect);
             // 
-            // txtPath
+            // picimagenes
             // 
-            this.txtPath.Location = new System.Drawing.Point(52, 121);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(315, 22);
-            this.txtPath.TabIndex = 3;
+            this.picimagenes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picimagenes.Location = new System.Drawing.Point(520, 133);
+            this.picimagenes.Name = "picimagenes";
+            this.picimagenes.Size = new System.Drawing.Size(827, 442);
+            this.picimagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picimagenes.TabIndex = 3;
+            this.picimagenes.TabStop = false;
+            // 
+            // rtbtext
+            // 
+            this.rtbtext.Location = new System.Drawing.Point(520, 136);
+            this.rtbtext.Name = "rtbtext";
+            this.rtbtext.Size = new System.Drawing.Size(827, 439);
+            this.rtbtext.TabIndex = 4;
+            this.rtbtext.Text = "";
+            // 
+            // vlcControl1
+            // 
+            this.vlcControl1.BackColor = System.Drawing.Color.Black;
+            this.vlcControl1.Location = new System.Drawing.Point(520, 136);
+            this.vlcControl1.Name = "vlcControl1";
+            this.vlcControl1.Size = new System.Drawing.Size(827, 439);
+            this.vlcControl1.Spu = -1;
+            this.vlcControl1.TabIndex = 5;
+            this.vlcControl1.Text = "vlcControl1";
+            this.vlcControl1.VlcLibDirectory = ((System.IO.DirectoryInfo)(resources.GetObject("vlcControl1.VlcLibDirectory")));
+            this.vlcControl1.VlcMediaplayerOptions = null;
+            // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(905, 611);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 23);
+            this.btnPause.TabIndex = 6;
+            this.btnPause.Text = "PAUSE";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1359, 763);
-            this.Controls.Add(this.txtPath);
-            this.Controls.Add(this.lstArchivos);
+            this.Controls.Add(this.btnPause);
+            this.Controls.Add(this.vlcControl1);
+            this.Controls.Add(this.rtbtext);
+            this.Controls.Add(this.picimagenes);
+            this.Controls.Add(this.tuvFiles);
             this.Controls.Add(this.btnorganize);
             this.Controls.Add(this.btnopen);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.picimagenes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -90,8 +134,11 @@
 
         private System.Windows.Forms.Button btnopen;
         private System.Windows.Forms.Button btnorganize;
-        private System.Windows.Forms.ListBox lstArchivos;
-        private System.Windows.Forms.TextBox txtPath;
+        private System.Windows.Forms.TreeView tuvFiles;
+        private System.Windows.Forms.PictureBox picimagenes;
+        private System.Windows.Forms.RichTextBox rtbtext;
+        private Vlc.DotNet.Forms.VlcControl vlcControl1;
+        private System.Windows.Forms.Button btnPause;
     }
 }
 
